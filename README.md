@@ -1,6 +1,6 @@
-# kkartunov-site
+# Portfolio Site
 
-> Kiril Kartunov portfolio site
+Build with Vue.js and Nuxt.js.
 
 ## Build Setup
 
@@ -19,4 +19,5 @@ $ npm run start
 $ npm run generate
 ```
 
+## Nuxt Docs
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
