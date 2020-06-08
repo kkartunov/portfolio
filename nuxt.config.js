@@ -1,7 +1,6 @@
 
 module.exports = {
   mode: 'universal',
-  buildDir: 'dist',
   /*
   ** Headers of the page
   */
