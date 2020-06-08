@@ -498,15 +498,15 @@ export default {
     checkForm: function (e) {
       e.preventDefault();
       
-      this.errors = [];
-      const { name, email, msg} = this;
+      (<any>this).errors = <any>[];
+      const { name, email, msg} = (<any>this);
 
       if (!name.trim() || name.length <= 4) {
-        this.errors.push('How should I call You, when I write back? Pleae, type a name at least 4 characters long.');
+        (<any>this).errors.push('How should I call You, when I write back? Pleae, type a name at least 4 characters long.');
         return;
       }
       if (!msg.trim() || msg.length <= 25) {
-        this.errors.push('You forgot to say something :-) Please, type a message at least 25 characters long.');
+        (<any>this).errors.push('You forgot to say something :-) Please, type a message at least 25 characters long.');
         return;
       }
 
@@ -524,13 +524,13 @@ export default {
       })
       .then(res => {
         if (!res.ok) {
-          this.errors.push(res.statusText);
+          (<any>this).errors.push(res.statusText);
         } else {
-          this.sent = true;
+          (<any>this).sent = true;
         }
       })
       .catch(e => {
-        this.errors.push('There was some error sending your email :-(. Please, try again.');
+        (<any>this).errors.push('There was some error sending your email :-(. Please, try again.');
       });
     }
   }
