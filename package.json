@@ -11,12 +11,22 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^2.0.0",
+    "@types/node": "^14.0.5",
+    "apexcharts": "^3.19.2",
     "cross-env": "^5.2.0",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "nodemailer": "^6.4.8",
+    "nuxt": "^2.0.0",
+    "validator": "^13.0.0",
+    "vue-apexcharts": "^1.5.3",
+    "vue-scrollto": "^2.18.1",
+    "vue-typer": "^1.2.0",
+    "xss-filters": "^1.2.7"
   },
   "devDependencies": {
+    "@nuxt/typescript-build": "^0.6.0",
+    "node-sass": "^4.14.1",
     "nodemon": "^1.18.9",
-    "@nuxt/typescript-build": "^0.6.0"
+    "sass-loader": "^8.0.2"
   }
 }
