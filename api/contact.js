@@ -4,9 +4,9 @@ import validator from 'validator'
 import xssFilters from 'xss-filters'
 
 const rejectFunctions = new Map([
-  [ 'name', v => v.length < 4 ],
-  [ 'email', v => !validator.isEmail(v) ],
-  [ 'msg', v => v.length < 25 ]
+  ['name', v => v.length < 4],
+  ['email', v => !validator.isEmail(v)],
+  ['msg', v => v.length < 25]
 ])
 const validateAndSanitize = (key, value) => {
   // If map has key and function returns false, return sanitized input. Else, return false
@@ -15,9 +15,12 @@ const validateAndSanitize = (key, value) => {
 
 const sendMail = (name, email, msg) => {
   const transporter = nodemailer.createTransport({
-    sendmail: true,
-    newline: 'unix',
-    path: '/usr/sbin/sendmail'
+    host: "smtp.mailtrap.io",
+    port: 2525,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
+    }
   })
   return transporter.sendMail({
     from: email,
@@ -49,12 +52,12 @@ app.post('/', (req, res) => {
 
   // Upcoming here: sending the mail
   sendMail(...sanitizedAttributes)
-  .then(() => {
-    res.status(200).json({ 'message': 'OH YEAH' })
-  })
-  .catch(e => {
-    res.status(500).json(e)
-  })
+    .then(() => {
+      res.status(200).json({ 'message': 'OH YEAH' })
+    })
+    .catch(e => {
+      res.status(500).json(e)
+    })
 })
 
 export default {
