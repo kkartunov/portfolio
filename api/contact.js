@@ -15,17 +15,17 @@ const validateAndSanitize = (key, value) => {
 
 const sendMail = (name, email, msg) => {
   const transporter = nodemailer.createTransport({
-    host: "smtp.mailtrap.io",
-    port: 2525,
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
     }
   })
   return transporter.sendMail({
-    from: email,
+    from: 'kiri4a@gmail.com',
     to: 'kiril.kartunov@gmail.com',
-    subject: 'New contact form message',
+    subject: `New contact form ${email}`,
     text: msg
   })
 }
