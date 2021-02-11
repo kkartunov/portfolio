@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@types/node": "^14.0.5",
-    "apexcharts": "^3.19.2",
+    "apexcharts": "^3.24.0",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "nodemailer": "^6.4.8",
